@@ -140,7 +140,7 @@ const handleLogout = async () => {
                 </div>
                 <div class="modal-footer">
                     <button class="btn-cancel" @click="showLogoutModal = false">Close</button>
-                    <button class="btn-delete-confirm" @click="handleLogout">Logout</button>
+                    <button class="btn-danger" @click="handleLogout">Logout</button>
                 </div>
             </div>
         </div>

@@ -24,7 +24,7 @@ const goToDetail = (id) => {
     <div class="wishlist-page">
         <div class="container">
             <div class="page-header">
-                <h2>Favorite items</h2>
+                <h2>Wishlist</h2>
                 <span v-if="wishlist.length > 0" class="badge-count">{{ wishlist.length }} items</span>
             </div>
 

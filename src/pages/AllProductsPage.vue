@@ -23,7 +23,7 @@ const maxPrice = ref(null)
 const sortBy = ref('newest')
 const showLoginModal = ref(false)
 
-// --- STATE PAGINATION (BARU) ---
+// --- STATE PAGINATION ---
 const currentPage = ref(1)
 const itemsPerPage = 8 
 
@@ -34,7 +34,6 @@ const parseDate = (dateInput) => {
     return new Date(dateInput)
 }
 
-// 1. Filter Semua Data Dulu
 const filteredProducts = computed(() => {
     let result = products.value.filter(product => {
         const query = store.getters.getSearchQuery.toLowerCase()
@@ -55,7 +54,6 @@ const filteredProducts = computed(() => {
         return matchSearch && matchCategory && matchStore && matchMinPrice && matchMaxPrice
     })
 
-    // Sorting
     if (sortBy.value === 'popular') {
         result.sort((a, b) => (b.rating || 0) - (a.rating || 0))
     } else if (sortBy.value === 'newest') {
@@ -69,28 +67,23 @@ const filteredProducts = computed(() => {
     return result
 })
 
-// 2. Ambil Data Sesuai Halaman (PAGINATION LOGIC)
 const paginatedProducts = computed(() => {
     const start = (currentPage.value - 1) * itemsPerPage
     const end = start + itemsPerPage
     return filteredProducts.value.slice(start, end)
 })
 
-// Hitung Total Halaman
 const totalPages = computed(() => {
     return Math.ceil(filteredProducts.value.length / itemsPerPage)
 })
 
-// Fungsi Pindah Halaman
 const changePage = (page) => {
     if (page >= 1 && page <= totalPages.value) {
         currentPage.value = page
-        // Scroll ke atas grid saat pindah halaman
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 }
 
-// Reset ke Halaman 1 jika Filter berubah
 watch([selectedCategory, storeSearch, minPrice, maxPrice, sortBy, () => store.getters.getSearchQuery], () => {
     currentPage.value = 1
 })

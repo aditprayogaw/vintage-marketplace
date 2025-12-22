@@ -3,7 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import { doc, getDoc, updateDoc } from 'firebase/firestore'
 import { updateProfile } from 'firebase/auth'
-import { db } from '../../FireBase' // Pastikan path ini sesuai struktur folder kamu
+import { db } from '../../FireBase' 
 
 const store = useStore()
 const currentUser = computed(() => store.getters.currentUser)
@@ -30,7 +30,6 @@ const closeModal = () => {
     showModal.value = false
 }
 
-// --- HELPER: Image Compression Logic ---
 const compressImage = (file, maxWidth, quality) => {
     return new Promise((resolve, reject) => {
         const reader = new FileReader()
@@ -58,7 +57,6 @@ const compressImage = (file, maxWidth, quality) => {
     })
 }
 
-// Fetch User Data
 const fetchUserData = async () => {
     if (currentUser.value) {
         fullname.value = currentUser.value.displayName || ''
@@ -81,7 +79,6 @@ const fetchUserData = async () => {
     }
 }
 
-// Photo Upload Logic (Base64 Version)
 const fileInput = ref(null)
 
 const triggerFileInput = () => {
@@ -100,21 +97,12 @@ const handleFileChange = async (event) => {
 
     try {
         isLoading.value = true
-
-        // 1. Kompres gambar
         const base64String = await compressImage(file, 600, 0.7)
-
-        // 2. Simpan ke Firestore
         await updateDoc(doc(db, "users", currentUser.value.uid), {
             imageProfile: base64String
         })
-
-        // 3. Update tampilan lokal & Vuex
         photoPreview.value = base64String
-        
-        // PENTING: Update Vuex agar Navbar langsung berubah
         store.commit('UPDATE_USER_PHOTO', base64String)
-
         triggerModal('Success', 'Photo updated successfully!')
 
     } catch (error) {

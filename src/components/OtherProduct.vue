@@ -21,21 +21,14 @@ const cartItems = computed(() => store.getters.cartItems)
 // --- LOGIC FILTERING BARU ---
 const otherProducts = computed(() => {
     let items = [...allProducts.value]
-
-    // 1. Filter: Buang produk yang sedang dilihat (jika ada props excludeId)
     if (props.excludeId) {
         items = items.filter(p => p.id !== props.excludeId)
     }
 
-    // 2. Filter: Buang produk yang sudah di Cart (jika mode filterInCart aktif)
     if (props.filterInCart) {
         items = items.filter(p => !cartItems.value.find(c => c.id === p.id))
     }
 
-    // 3. (Opsional) Acak urutan biar fresh
-    // items.sort(() => 0.5 - Math.random())
-
-    // 4. Ambil 4 produk pertama
     return items.slice(0, 4)
 })
 

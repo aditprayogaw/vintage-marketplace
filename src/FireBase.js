@@ -3,7 +3,6 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-// --- PASTE KONFIGURASI DARI FIREBASE CONSOLE DI SINI ---
 const firebaseConfig = {
   apiKey: "AIzaSyCW2fKMxh7clmfrVDhXIu4NacvCTCn0k7c",
   authDomain: "vintage-app-1aeb6.firebaseapp.com",

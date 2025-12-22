@@ -54,7 +54,6 @@
 <style scoped>
 .footer {
     background-color: #006D66;
-    /* Dark Teal sesuai gambar */
     color: white;
     padding: 60px 0 30px;
     font-family: 'Segoe UI', sans-serif;
@@ -69,7 +68,6 @@
 .footer-top {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* 4 Kolom Rata */
     gap: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding-bottom: 40px;
@@ -124,11 +122,9 @@ ul li a:hover {
     border-radius: 4px;
 }
 
-/* Responsif Mobile */
 @media (max-width: 768px) {
     .footer-top {
         grid-template-columns: 1fr 1fr;
-        /* Jadi 2 kolom di HP */
     }
 }
 </style>

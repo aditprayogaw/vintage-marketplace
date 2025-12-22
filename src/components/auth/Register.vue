@@ -193,7 +193,6 @@ const closeForm = () => {
 </template>
 
 <style scoped>
-/* Style unik untuk Checkbox Terms */
 .checkbox-group {
     display: flex;
     align-items: flex-start;

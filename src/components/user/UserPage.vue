@@ -5,20 +5,12 @@ import { useRouter } from 'vue-router'
 
 const store = useStore()
 const router = useRouter()
-
-// 1. Ambil Data User & Status Toko dari Store
 const user = computed(() => store.getters.currentUser)
 const hasStore = computed(() => store.getters.hasStore)
-
-// State Modal Logout
 const showLogoutModal = ref(false)
-
-// Fungsi Buka Modal
 const handleLogout = () => {
     showLogoutModal.value = true
 }
-
-// Fungsi Eksekusi Logout
 const confirmLogout = async () => {
     try {
         await store.dispatch('logout')
@@ -129,7 +121,6 @@ const confirmLogout = async () => {
     align-items: flex-start;
 }
 
-/* SIDEBAR STYLES */
 .sidebar {
     width: 280px;
     flex-shrink: 0;

@@ -26,7 +26,6 @@ const store = createStore({
         setProducts(state, payload) { state.products = payload },
         setSearchQuery(state, payload) { state.searchQuery = payload },
         
-        // Update user state
         setUser(state, payload) { 
             state.user = payload 
         },
@@ -44,7 +43,6 @@ const store = createStore({
         setUserStore(state, payload) { state.userStore = payload },
     },
     actions: {
-        // --- FETCH PRODUCT ---
         async fetchProducts({ commit }) {
             const querySnapshot = await getDocs(collection(db, 'products'))
             commit('setProducts', querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
@@ -57,16 +55,11 @@ const store = createStore({
     
                 if (docSnap.exists()) {
                     const data = docSnap.data()
-                    
-                    // 1. Set Cart & Wishlist
+    
                     commit('setCart', data.cart || [])
                     commit('setWishlist', data.wishlist || [])
-    
-                    // 2. Set Data Toko
                     commit('setUserStore', data.store || null)
 
-                    // 3. SET FOTO PROFIL DARI FIRESTORE (Base64)
-                    // Jika di database ada 'imageProfile', kita pakai itu.
                     if (data.imageProfile) {
                         commit('UPDATE_USER_PHOTO', data.imageProfile)
                     }
@@ -76,23 +69,19 @@ const store = createStore({
             }
         },
 
-        // --- AUTH ACTIONS ---
         async register({ commit }, { email, password, name, username }) {
             const res = await createUserWithEmailAndPassword(auth, email, password)
             await updateProfile(res.user, { displayName: name })
-            
-            // Buat dokumen user di Firestore
             await setDoc(doc(db, "users", res.user.uid), {
                 uid: res.user.uid, 
                 fullname: name, 
-                username: username, // Simpan username
+                username: username, 
                 email, 
                 cart: [], 
                 wishlist: [],
-                imageProfile: null // Awalnya kosong
+                imageProfile: null 
             })
-            
-            // Set user ke state
+
             commit('setUser', { 
                 uid: res.user.uid, 
                 email: res.user.email, 
@@ -103,16 +92,13 @@ const store = createStore({
 
         async login({ commit, dispatch }, { email, password }) {
             const res = await signInWithEmailAndPassword(auth, email, password)
-            
-            // Set user sementara (data dari Auth)
             commit('setUser', {
                 uid: res.user.uid,
                 email: res.user.email,
                 displayName: res.user.displayName,
                 photoURL: res.user.photoURL
             })
-            
-            // Ambil data lengkap (termasuk foto Base64) dari Firestore
+ 
             await dispatch('fetchUserData', res.user.uid)
         },
 
@@ -131,7 +117,6 @@ const store = createStore({
             commit('setUserStore', storeData)
         },
 
-        // --- WISHLIST ACTION ---
         async toggleWishlist({ commit, state }, product) {
             if (!state.user) return
             let newWishlist = [...state.wishlist]
@@ -144,7 +129,6 @@ const store = createStore({
             await updateDoc(userRef, { wishlist: newWishlist })
         },
 
-        // --- CART ACTIONS ---
         async addToCart({ commit, state }, product) {
             if (!state.user) return
             let newCart = [...state.cart]
@@ -199,16 +183,12 @@ const store = createStore({
 // --- LISTENER AUTH (DIPERBAIKI) ---
 const unsub = onAuthStateChanged(auth, async (user) => {
     if (user) {
-        // 1. Set data dasar dari Auth dulu agar aplikasi 'terasa' sudah login
         store.commit('setUser', {
             uid: user.uid,
             email: user.email,
-            displayName: user.displayName,
-            photoURL: null // Kita set null dulu, nanti diisi oleh fetchUserData
+            displayName: us
         })
 
-        // 2. Ambil data Firestore (Cart, Wishlist, dan PHOTO Base64)
-        // Kita gunakan 'await' agar authIsReady baru true setelah data DB selesai diambil
         await store.dispatch('fetchUserData', user.uid)
     } else {
         store.commit('setUser', null)
@@ -217,7 +197,6 @@ const unsub = onAuthStateChanged(auth, async (user) => {
         store.commit('setUserStore', null)
     }
     
-    // 3. Aplikasi siap dirender
     store.commit('setAuthIsReady', true)
 })
 

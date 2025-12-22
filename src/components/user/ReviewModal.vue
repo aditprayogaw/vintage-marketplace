@@ -17,7 +17,7 @@ const currentUser = computed(() => store.getters.currentUser)
 const rating = ref(0)
 const comment = ref('')
 const isSubmitting = ref(false)
-const isSuccess = ref(false) // State untuk mengontrol tampilan Sukses
+const isSuccess = ref(false) 
 
 // Star Logic
 const setRating = (star) => { rating.value = star }
@@ -44,17 +44,6 @@ const submitReview = async () => {
             productImage: props.product.image,
             createdAt: serverTimestamp()
         })
-
-        // 2. Update Rating Produk (Opsional: update rata-rata rating produk)
-        // Disini kita hanya contoh update counter sederhana
-        /* const productRef = doc(db, "products", props.product.id)
-        await updateDoc(productRef, {
-            reviewCount: increment(1)
-            // Logic update rating average butuh cloud function atau kalkulasi manual
-        }) 
-        */
-
-        // 3. Ubah Tampilan ke SUKSES (Pop-up Style)
         isSuccess.value = true
 
     } catch (error) {
@@ -66,8 +55,8 @@ const submitReview = async () => {
 }
 
 const closeAndRefresh = () => {
-    emit('submitted') // Refresh data di parent
-    emit('close')     // Tutup modal
+    emit('submitted') 
+    emit('close')   
 }
 </script>
 

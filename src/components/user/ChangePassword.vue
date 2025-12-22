@@ -9,16 +9,12 @@ const newPassword = ref('')
 const confirmPassword = ref('')
 const showPass = ref({ old: false, new: false, confirm: false })
 const isLoading = ref(false)
-
-// --- STATE: Success Modal (Khusus Sukses) ---
 const showSuccessModal = ref(false)
-
-// --- STATE: Error/Warning Modal (Pengganti Alert) ---
 const showErrorModal = ref(false)
 const errorTitle = ref('')
 const errorMessage = ref('')
 
-// Fungsi Helper untuk memunculkan Modal Error
+
 const triggerErrorModal = (title, message) => {
     errorTitle.value = title
     errorMessage.value = message
@@ -37,18 +33,15 @@ const handleChangePassword = async () => {
     const user = auth.currentUser;
 
     if (!user) {
-        // GANTI ALERT
         triggerErrorModal('Session Expired', 'Please login again.')
         return;
     }
 
     if (newPassword.value !== confirmPassword.value) {
-        // GANTI ALERT
         triggerErrorModal('Validation Error', 'New password and confirmation do not match!')
         return
     }
     if (newPassword.value.length < 6) {
-        // GANTI ALERT
         triggerErrorModal('Weak Password', 'Password must be at least 6 characters.')
         return
     }
@@ -74,13 +67,10 @@ const handleChangePassword = async () => {
     } catch (error) {
         console.error(error)
         if (error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
-            // GANTI ALERT
             triggerErrorModal('Incorrect Password', 'The old password you entered is incorrect.')
         } else if (error.code === 'auth/too-many-requests') {
-            // GANTI ALERT
             triggerErrorModal('Too Many Attempts', 'Access temporarily blocked. Please try again later.')
         } else {
-            // GANTI ALERT
             triggerErrorModal('Error', error.message)
         }
     } finally {
@@ -212,7 +202,6 @@ const handleChangePassword = async () => {
 </template>
 
 <style scoped>
-/* Card Specific Styles */
 .card {
     background: white;
     padding: 40px;
@@ -249,7 +238,6 @@ const handleChangePassword = async () => {
 .input-wrapper input {
     width: 100%;
     padding: 10px 40px 10px 10px;
-    /* Space for eye icon */
     border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 14px;

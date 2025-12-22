@@ -14,7 +14,7 @@ const password = ref('')
 const errorMessage = ref('')
 const isLoading = ref(false)
 const showPassword = ref(false)
-const showSuccessModal = ref(false) // STATE BARU: Kontrol Modal
+const showSuccessModal = ref(false) 
 
 // --- ACTION ---
 const handleLogin = async () => {
@@ -22,14 +22,11 @@ const handleLogin = async () => {
     isLoading.value = true
 
     try {
-        // 1. Proses Login ke Firebase
         await store.dispatch('login', { email: email.value, password: password.value })
 
-        // 2. JIKA SUKSES: Munculkan Modal (Jangan redirect dulu)
         showSuccessModal.value = true;
 
     } catch (error) {
-        // Handle Error
         switch (error.code) {
             case 'auth/user-not-found':
             case 'auth/wrong-password':
@@ -48,7 +45,6 @@ const handleLogin = async () => {
     }
 }
 
-// Fungsi tombol di dalam Modal "Go to Home Page"
 const goToHome = () => {
     showSuccessModal.value = false
     router.push('/')

@@ -60,15 +60,12 @@ const districtsData = {
 }
 const availableDistricts = computed(() => districtsData[address.value.city] || [])
 
-const shippingMethod = ref('flat') // 'flat' or 'standard'
+const shippingMethod = ref('flat') 
 const paymentMethod = ref('Transfer Bank - BCA')
 const isProcessing = ref(false)
-
-// State Modals
 const showSuccessModal = ref(false)
 const showValidationModal = ref(false)
 
-// --- COMPUTED ---
 const standardShippingCost = computed(() => {
     if (!address.value.city) return 0
     let totalCost = 0
@@ -89,7 +86,6 @@ const subtotal = computed(() => checkoutItems.value.reduce((sum, item) => sum + 
 const grandTotal = computed(() => subtotal.value + shippingCost.value)
 const formatRupiah = (val) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(val)
 
-// --- ACTIONS ---
 const handlePlaceOrder = async () => {
     if (!address.value.city || !address.value.district || !address.value.fullAddress || !address.value.phone) {
         showValidationModal.value = true
