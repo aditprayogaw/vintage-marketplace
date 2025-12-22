@@ -27,9 +27,36 @@ const address = ref({
 
 const baliCities = ['Denpasar', 'Badung', 'Gianyar', 'Tabanan', 'Bangli', 'Klungkung', 'Karangasem', 'Buleleng', 'Jembrana']
 const districtsData = {
-    'Denpasar': ['Denpasar Selatan', 'Denpasar Barat', 'Denpasar Timur', 'Denpasar Utara'],
-    'Badung': ['Kuta', 'Kuta Utara', 'Kuta Selatan', 'Mengwi', 'Abiansemal', 'Petang'],
-    'Gianyar': ['Ubud', 'Sukawati', 'Blahbatuh', 'Gianyar', 'Tampaksiring', 'Tegallalang', 'Payangan'],
+    'Denpasar': [
+        'Denpasar Barat', 'Denpasar Selatan', 'Denpasar Timur', 'Denpasar Utara'
+    ],
+    'Badung': [
+        'Abiansemal', 'Kuta', 'Kuta Selatan', 'Kuta Utara', 'Mengwi', 'Petang'
+    ],
+    'Gianyar': [
+        'Blahbatuh', 'Gianyar', 'Payangan', 'Sukawati', 'Tampaksiring', 'Tegallalang', 'Ubud'
+    ],
+    'Tabanan': [
+        'Baturiti', 'Kediri', 'Kerambitan', 'Marga', 'Penebel', 
+        'Pupuan', 'Selemadeg', 'Selemadeg Barat', 'Selemadeg Timur', 'Tabanan'
+    ],
+    'Bangli': [
+        'Bangli', 'Kintamani', 'Susut', 'Tembuku'
+    ],
+    'Klungkung': [
+        'Banjarangkan', 'Dawan', 'Klungkung', 'Nusa Penida'
+    ],
+    'Karangasem': [
+        'Abang', 'Bebandem', 'Karangasem', 'Kubu', 'Manggis', 
+        'Rendang', 'Selat', 'Sidemen'
+    ],
+    'Buleleng': [
+        'Banjar', 'Buleleng', 'Busungbiu', 'Gerokgak', 'Kubutambahan', 
+        'Sawan', 'Seririt', 'Sukasada', 'Tejakula'
+    ],
+    'Jembrana': [
+        'Jembrana', 'Melaya', 'Mendoyo', 'Negara', 'Pekutatan'
+    ]
 }
 const availableDistricts = computed(() => districtsData[address.value.city] || [])
 
