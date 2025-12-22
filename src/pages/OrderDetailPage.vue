@@ -37,7 +37,7 @@ const districtsData = {
         'Blahbatuh', 'Gianyar', 'Payangan', 'Sukawati', 'Tampaksiring', 'Tegallalang', 'Ubud'
     ],
     'Tabanan': [
-        'Baturiti', 'Kediri', 'Kerambitan', 'Marga', 'Penebel', 
+        'Baturiti', 'Kediri', 'Kerambitan', 'Marga', 'Penebel',
         'Pupuan', 'Selemadeg', 'Selemadeg Barat', 'Selemadeg Timur', 'Tabanan'
     ],
     'Bangli': [
@@ -47,11 +47,11 @@ const districtsData = {
         'Banjarangkan', 'Dawan', 'Klungkung', 'Nusa Penida'
     ],
     'Karangasem': [
-        'Abang', 'Bebandem', 'Karangasem', 'Kubu', 'Manggis', 
+        'Abang', 'Bebandem', 'Karangasem', 'Kubu', 'Manggis',
         'Rendang', 'Selat', 'Sidemen'
     ],
     'Buleleng': [
-        'Banjar', 'Buleleng', 'Busungbiu', 'Gerokgak', 'Kubutambahan', 
+        'Banjar', 'Buleleng', 'Busungbiu', 'Gerokgak', 'Kubutambahan',
         'Sawan', 'Seririt', 'Sukasada', 'Tejakula'
     ],
     'Jembrana': [
@@ -255,24 +255,27 @@ const finishOrder = () => {
 
         <div v-if="showValidationModal" class="modal-overlay">
             <div class="modal-content">
-                <div class="modal-icon warning">
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#FF9800" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="8" x2="12" y2="12"></line>
-                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                    </svg>
+                <div class="modal-body">
+                    <div class="modal-icon warning">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#FF9800" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <h2>Incomplete Details</h2>
+                    <p>Please complete your shipping address details before placing the order.</p>
+                    <button class="warning-btn" @click="showValidationModal = false">OK, I'll fill it</button>
                 </div>
-                <h2>Incomplete Details</h2>
-                <p>Please complete your shipping address details before placing the order.</p>
-                <button class="warning-btn" @click="showValidationModal = false">OK, I'll fill it</button>
+
             </div>
         </div>
 
         <div v-if="showSuccessModal" class="modal-overlay">
             <div class="modal-content">
                 <div class="modal-body">
-                    
+
                 </div>
                 <div class="modal-body success">
                     <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2">

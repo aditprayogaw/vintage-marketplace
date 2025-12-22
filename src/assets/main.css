@@ -1,7 +1,6 @@
-/* src/assets/main.css */
 
 /* =========================================
-   1. VARIABLES & RESET
+   VARIABLES & RESET
    ========================================= */
 :root {
   --primary: #008080;
@@ -67,7 +66,7 @@ a {
 }
 
 /* =========================================
-   2. GLOBAL COMPONENTS (Buttons, Inputs, etc)
+   GLOBAL COMPONENTS
    ========================================= */
 input,
 select,
@@ -103,7 +102,7 @@ button {
     font-weight: 700; 
     font-size: 14px;
     text-transform: uppercase;
-    width: 100%; /* Agar tombol modal lebar penuh */
+    width: 100%;
 }
 .btn-primary:hover,
 .btn-submit:hover {
@@ -228,7 +227,7 @@ button {
 }
 
 /* =========================================
-   3. PRODUCT CARD & GRID
+   PRODUCT CARD & GRID
    ========================================= */
 .product-grid {
   display: grid;
@@ -313,31 +312,30 @@ button {
 }
 
 /* =========================================
-   4. MODALS & POPUPS
+   MODALS & POPUPS
    ========================================= */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Overlay lebih halus */
+    background-color: rgba(0, 0, 0, 0.5); 
     display: flex; justify-content: center; align-items: center;
     z-index: 2000;
-    backdrop-filter: blur(2px); /* Efek blur di belakang */
+    backdrop-filter: blur(2px);
     transition: opacity 0.3s ease;
 }
 
 .modal-content {
     background: white;
     width: 90%;
-    max-width: 420px; /* Lebar ideal untuk dialog konfirmasi */
+    max-width: 420px; 
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    overflow: hidden; /* Agar sudut rounded tidak terpotong header/footer */
+    overflow: hidden;
     animation: slideUp 0.3s ease-out;
-    padding: 0; /* Reset padding agar header/footer penuh */
+    padding: 0; 
     border: 1px solid #e5e5e5;
 }
 
-/* --- Header Modal --- */
 .modal-header {
     display: flex; justify-content: space-between; align-items: center;
     padding: 20px 24px;
@@ -364,7 +362,6 @@ button {
     color: #374151;
 }
 
-/* --- Body Modal --- */
 .modal-body {
     padding: 30px 24px;
     text-align: center;
@@ -373,17 +370,15 @@ button {
     line-height: 1.6;
 }
 
-/* --- Footer Modal (Area Tombol) --- */
 .modal-footer {
     padding: 16px 24px;
-    background-color: #f9fafb; /* Background abu-abu muda */
+    background-color: #f9fafb; 
     border-top: 1px solid #f0f0f0;
     display: flex;
-    justify-content: flex-end; /* Tombol di kanan */
+    justify-content: flex-end;
     gap: 12px;
 }
 
-/* --- Tombol di Modal --- */
 .btn-cancel {
     padding: 10px 20px;
     background-color: white;
@@ -400,10 +395,9 @@ button {
     border-color: #9ca3af;
 }
 
-/* Tombol Merah (Untuk Logout & Remove) */
 .btn-danger {
     padding: 10px 20px;
-    background-color: #DC2626; /* Merah modern */
+    background-color: #DC2626; 
     border: 1px solid #DC2626;
     color: white;
     border-radius: 6px;
@@ -418,14 +412,13 @@ button {
     border-color: #B91C1C;
 }
 
-/* Animasi Muncul */
 @keyframes slideUp {
     from { opacity: 0; transform: translateY(20px) scale(0.98); }
     to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* =========================================
-   5. HOME PAGE STYLES
+   HOME PAGE STYLES
    ========================================= */
 .hero {
   height: 400px;
@@ -466,7 +459,6 @@ button {
   font-size: 14px;
 }
 
-/* Special Cards in Home */
 .see-all-card {
   background-color: #E0F2F1;
   display: flex;
@@ -525,7 +517,7 @@ button {
 }
 
 /* =========================================
-   6. ALL PRODUCTS PAGE (Filter)
+   ALL PRODUCTS PAGE (Filter)
    ========================================= */
 .filter-section {
   background: white;
@@ -597,7 +589,6 @@ button {
   font-weight: 600;
 }
 
-/* Pagination */
 .pagination-container {
   display: flex;
   justify-content: center;
@@ -618,7 +609,7 @@ button {
 }
 
 /* =========================================
-   7. DETAIL PAGE
+   DETAIL PAGE
    ========================================= */
 .detail-page {
   padding: 40px 0;
@@ -706,7 +697,7 @@ button {
 }
 
 /* =========================================
-   8. CART PAGE
+   CART PAGE
    ========================================= */
 .cart-page {
   padding-top: 40px;
@@ -827,7 +818,7 @@ button {
 }
 
 /* =========================================
-   9. RESPONSIVE
+   RESPONSIVE
    ========================================= */
 @media (max-width: 768px) {
   .product-grid {
@@ -891,7 +882,7 @@ button {
 }
 
 /* =========================================
-   10. AUTH PAGES (Login / Register)
+   AUTH PAGES (Login / Register)
    ========================================= */
 .auth-container {
     display: flex;
@@ -964,7 +955,6 @@ button {
     border: 1px solid #ffcdd2;
 }
 
-/* Close button khusus card login */
 .close-btn {
     background: none;
     border: none;
@@ -976,7 +966,7 @@ button {
 }
 
 /* =========================================
-   11. NAVBAR & HEADER
+   NAVBAR & HEADER
    ========================================= */
 .navbar {
     background-color: white;
@@ -992,7 +982,6 @@ button {
 
 .navbar-brand { display: flex; align-items: center; gap: 10px; }
 
-/* Search Box */
 .navbar-search { flex: 1; max-width: 600px; position: relative; }
 .search-icon {
     position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
@@ -1000,7 +989,6 @@ button {
 }
 .navbar-search input { padding-left: 45px; }
 
-/* Actions */
 .navbar-actions, .user-actions { display: flex; align-items: center; gap: 15px; }
 
 .icon-btn { position: relative; cursor: pointer; display: flex; align-items: center; }
@@ -1012,7 +1000,6 @@ button {
     border-radius: 50%; min-width: 16px; text-align: center;
 }
 
-/* Avatar & Dropdown */
 .profile-dropdown { position: relative; }
 .avatar-circle {
     width: 40px; height: 40px; border-radius: 50%; background-color: #eee;
@@ -1038,7 +1025,6 @@ button {
 .logout-btn { color: var(--danger); }
 .logout-btn:hover { background-color: #FFF5F5; }
 
-/* Guest Buttons */
 .auth-buttons { display: flex; gap: 10px; }
 .btn-outline {
     border: 1px solid var(--primary); color: var(--primary); background: transparent;
@@ -1051,7 +1037,7 @@ button {
 }
 
 /* =========================================
-   12. FORM PAGES (Add/Edit Product)
+   FORM PAGES
    ========================================= */
 .add-product-page, .edit-product-page {
     max-width: 600px;
@@ -1087,7 +1073,6 @@ button {
 
 .form-group { margin-bottom: 20px; }
 
-/* Image Input Preview */
 .image-input-wrapper {
     display: flex;
     gap: 10px;
@@ -1102,7 +1087,7 @@ button {
 .img-preview img { width: 100%; height: 100%; object-fit: cover; }
 
 /* =========================================
-   13. STORE DASHBOARD
+   STORE DASHBOARD
    ========================================= */
 .dashboard-container {
     max-width: 1200px;
@@ -1110,7 +1095,6 @@ button {
     padding: 20px;
 }
 
-/* --- Store Header --- */
 .store-header {
     background: white;
     padding: 30px;
@@ -1163,7 +1147,6 @@ button {
 
 .btn-add { white-space: nowrap; padding: 12px 25px; }
 
-/* --- Stats Cards --- */
 .stats-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 25px; margin-bottom: 40px;
@@ -1187,7 +1170,6 @@ button {
 }
 .stat-value.highlight { color: var(--primary); }
 
-/* --- Products Section Styles --- */
 .products-section {
     background: white; padding: 30px;
     border-radius: 12px; border: 1px solid var(--border);
@@ -1198,7 +1180,6 @@ button {
     margin-bottom: 25px; color: var(--text-main); font-weight: 700;
 }
 
-/* Overlay Actions (Edit/Delete buttons on hover) */
 .card-actions-overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.3);
@@ -1217,7 +1198,6 @@ button {
 .action-btn.delete:hover { background: var(--danger); color: white; }
 .action-btn.edit:hover { background: var(--primary); color: white; }
 
-/* Product Details in Dashboard */
 .product-name {
     margin: 0 0 5px; font-size: 14px; color: var(--text-main);
     font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
@@ -1234,17 +1214,14 @@ button {
     border-radius: 4px; font-size: 11px;
 }
 
-/* --- Input Edit Modal --- */
 .input-edit {
     width: 100%; padding: 10px; border: 1px solid #ddd;
     border-radius: 6px; margin: 20px 0; outline: none;
 }
 
-/* --- Delete Modal Specific --- */
 .delete-modal h3 { color: var(--danger); margin-bottom: 10px; }
 .warning-icon { font-size: 40px; margin-bottom: 10px; }
 
-/* --- Responsive Dashboard --- */
 @media (max-width: 768px) {
     .store-header {
         flex-direction: column; text-align: center; padding: 20px;
@@ -1253,8 +1230,7 @@ button {
     .header-actions { width: 100%; margin-top: 15px; }
     .btn-add { width: 100%; }
     .stats-grid { grid-template-columns: 1fr; }
-    
-    /* Di HP, overlay aksi selalu muncul di pojok kanan bawah gambar */
+
     .card-actions-overlay {
         opacity: 1; background: transparent;
         align-items: flex-start; justify-content: flex-end; padding: 10px;
@@ -1263,7 +1239,7 @@ button {
 }
 
 /* =========================================
-   14. STORE REGISTRATION (Activation)
+   STORE REGISTRATION (Activation)
    ========================================= */
 .activation-card {
     background: white; padding: 50px 30px;
@@ -1297,7 +1273,7 @@ button {
 .preview-info p { margin: 5px 0; }
 
 /* =========================================
-   15. TRANSACTION HISTORY
+   TRANSACTION HISTORY
    ========================================= */
 .history-container {
     background: white; padding: 30px;
@@ -1355,7 +1331,6 @@ button {
 .total-label { font-size: 13px; color: var(--text-light); }
 .trx-total-price { font-size: 16px; font-weight: 700; color: var(--primary); }
 
-/* Review Button & Badge */
 .item-action { margin-left: auto; }
 
 .btn-rate {
@@ -1384,7 +1359,6 @@ button {
 }
 .empty-icon { font-size: 48px; margin-bottom: 10px; }
 
-/* Cart Table */
 .cart-content { max-width: 1100px; margin: 0 auto; }
 
 .cart-header {
@@ -1406,14 +1380,12 @@ button {
 }
 .cart-row.selected { background-color: #F0FDFA; }
 
-/* Columns */
 .col-check { width: 40px; text-align: center; }
 .col-product { flex: 2; }
 .col-price, .col-qty { flex: 1; text-align: center; }
 .col-total, .col-action { flex: 1; text-align: right; }
 .col-action { width: 50px; }
 
-/* Product Info in Row */
 .product-info { display: flex; align-items: center; gap: 15px; }
 .product-info img {
     width: 60px; height: 60px; object-fit: cover;
@@ -1424,7 +1396,6 @@ button {
 }
 .p-meta { margin: 0; color: var(--text-light); font-size: 12px; }
 
-/* Qty Control */
 .qty-control {
     display: inline-flex; border: 1px solid #ddd; border-radius: 4px; overflow: hidden;
 }
@@ -1437,7 +1408,6 @@ button {
     font-size: 14px; min-width: 30px; text-align: center;
 }
 
-/* Summary Bar */
 .cart-summary-bar {
     position: fixed; bottom: 0; left: 0; width: 100%;
     background: white; border-top: 1px solid #ddd;
@@ -1449,10 +1419,8 @@ button {
 .total-info { text-align: right; font-size: 14px; }
 .total-price { display: block; font-size: 18px; font-weight: 700; color: var(--primary); }
 
-/* Modal Remove Specific */
 .remove-modal { width: 90%; max-width: 400px; }
 
-/* Responsive Cart */
 @media (max-width: 768px) {
     .cart-header { display: none; }
     .cart-row { flex-wrap: wrap; position: relative; padding-bottom: 50px; }
@@ -1466,7 +1434,7 @@ button {
 }
 
 /* =========================================
-   16. CHECKOUT PAGE
+   CHECKOUT PAGE
    ========================================= */
 .checkout-page {
     padding: 40px 0;
@@ -1503,7 +1471,6 @@ button {
     padding-bottom: 10px;
 }
 
-/* Checkout Item List */
 .checkout-item {
     display: flex;
     gap: 15px;
@@ -1523,7 +1490,6 @@ button {
 .item-info .meta { font-size: 12px; color: var(--text-light); margin: 0 0 5px; }
 .item-info .price { font-weight: 700; color: var(--primary); font-size: 14px; margin: 0; }
 
-/* Shipping Options (Radio Cards) */
 .shipping-options { display: flex; flex-direction: column; gap: 10px; }
 .radio-card {
     display: flex; align-items: center; padding: 15px;
@@ -1538,7 +1504,6 @@ button {
 .radio-desc { font-size: 12px; color: var(--text-light); }
 .radio-price { font-weight: 700; color: var(--primary); font-size: 14px; }
 
-/* Summary Card (Sticky) */
 .summary-card {
     background: white; padding: 25px;
     border-radius: var(--radius); border: 1px solid var(--border);
@@ -1562,7 +1527,6 @@ button {
 .btn-order:hover { background: var(--primary-dark); }
 .btn-order:disabled { background: #ccc; cursor: not-allowed; }
 
-/* Warning Modal Button */
 .warning-btn {
     width: 100%; padding: 12px; background-color: var(--warning);
     color: white; border: none; border-radius: 6px;
@@ -1576,7 +1540,7 @@ button {
 }
 
 /* =========================================
-   17. PRODUCT DETAIL PAGE
+   PRODUCT DETAIL PAGE
    ========================================= */
 .detail-page { padding: 40px 0 100px; background-color: var(--bg-light); min-height: 100vh; }
 
@@ -1645,7 +1609,6 @@ button {
     font-size: 12px; color: var(--text-light); font-weight: 600;
 }
 
-/* Empty Wishlist State */
 .empty-wishlist {
     text-align: center; padding: 80px 0; background: white;
     border-radius: var(--radius); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
@@ -1665,16 +1628,15 @@ button {
 }
 .btn-find:hover { background-color: var(--primary-dark); }
 
-/* Like Button in Wishlist Card */
 .like-btn { display: flex; align-items: center; gap: 4px; cursor: pointer; }
 .like-count { font-size: 12px; color: var(--text-light); }
 
 /* =========================================
-   18. MODAL FORM ELEMENTS
+   MODAL FORM ELEMENTS
    ========================================= */
 .modal-form-group {
     margin-bottom: 15px;
-    text-align: left; /* Agar label rata kiri */
+    text-align: left; 
 }
 
 .modal-label {

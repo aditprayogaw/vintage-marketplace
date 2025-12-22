@@ -129,16 +129,18 @@ const goToDashboard = () => {
 
         <div v-if="showSuccessModal" class="modal-overlay">
             <div class="modal-content">
-                <div class="modal-icon">
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#008080" stroke-width="2">
-                        <circle cx="12" cy="12" r="10" />
-                        <path d="M8 12L11 15L16 9" />
-                    </svg>
-                </div>
-                <h2>Product Published!</h2>
-                <p>Your item is now live and ready to be sold.</p>
-                <div class="modal-actions">
-                    <button class="btn-primary" @click="goToDashboard">Go to Store Dashboard</button>
+                <div class="modal-body">
+                    <div class="modal-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#008080" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M8 12L11 15L16 9" />
+                        </svg>
+                    </div>
+                    <h2>Product Published!</h2>
+                    <p>Your item is now live and ready to be sold.</p>
+                    <div class="modal-actions">
+                        <button class="btn-primary" @click="goToDashboard">Go to Store Dashboard</button>
+                    </div>
                 </div>
             </div>
         </div>

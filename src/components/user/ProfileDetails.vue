@@ -163,7 +163,7 @@ onMounted(() => {
 
                 <input type="file" ref="fileInput" @change="handleFileChange" accept="image/*" style="display: none;" />
 
-                <button class="btn-secondary" @click="triggerFileInput" :disabled="isLoading">
+                <button class="btn-choose" @click="triggerFileInput" :disabled="isLoading">
                     {{ isLoading ? 'Processing...' : 'Choose Photo' }}
                 </button>
                 <span class="file-info">JPG, JPEG or PNG. Auto-compressed.</span>
@@ -206,7 +206,7 @@ onMounted(() => {
                         <circle cx="12" cy="12" r="11" />
                         <path d="M7 13L10 16L17 9" />
                     </svg>
-                    <h2>Change Photo Successful!</h2>
+                    <h2>Update Profile Successful!</h2>
                 </div>
                 <div class="modal-footer">
                     <button class="btn-cancel" @click="closeModal">Close</button>
