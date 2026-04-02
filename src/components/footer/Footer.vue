@@ -3,7 +3,7 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-col">
-                    <h4>Vintage</h4>
+                    <h4 class="footer-title">Vintage</h4>
                     <ul>
                         <li><a href="#">About us</a></li>
                         <li><a href="#">Sustainability</a></li>
@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4>Discover</h4>
+                    <h4 class="footer-title">Discover</h4>
                     <ul>
                         <li><a href="#">How it works</a></li>
                         <li><a href="#">Help center</a></li>
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4>Help</h4>
+                    <h4 class="footer-title">Help</h4>
                     <ul>
                         <li><a href="#">Help center</a></li>
                         <li><a href="#">Buying</a></li>
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4>Community</h4>
+                    <h4 class="footer-title">Community</h4>
                     <ul>
                         <li><a href="#">Forum</a></li>
                     </ul>
@@ -45,7 +45,7 @@
                     <span class="icon">INSTAGRAM</span>
                     <span class="icon">LINKEDIN</span>
                 </div>
-                <p>&copy; Vintage, 2023</p>
+                <p class="footer-text">&copy; GoldFashion, 2023 | All rights reserved AdityaVisual.</p>
             </div>
         </div>
     </footer>
@@ -53,7 +53,7 @@
 
 <style scoped>
 .footer {
-    background-color: #006D66;
+    background-color: #55520d;
     color: white;
     padding: 60px 0 30px;
     font-family: 'Segoe UI', sans-serif;

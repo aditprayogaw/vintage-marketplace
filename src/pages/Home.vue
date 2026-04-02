@@ -139,7 +139,7 @@ onMounted(() => {
                     </div>
                 </div>
 
-                <div class="product-card see-all-card" @click="goToAllProducts">
+                <div class="product-card see-all-card blue-card" @click="goToAllProducts">
                     <div class="see-all-content">
                         <h3>See All<br>Popular Items</h3>
                     </div>

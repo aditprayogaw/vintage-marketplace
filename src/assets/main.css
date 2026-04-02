@@ -3,16 +3,16 @@
    VARIABLES & RESET
    ========================================= */
 :root {
-  --primary: #008080;
+  --primary: #BAB62A;
   /* Teal */
-  --primary-dark: #006666;
+  --primary-dark: #938f1d;
   --secondary: #f0f0f0;
   --text-main: #333;
   --text-light: #666;
   --bg-light: #F9FAFB;
   --danger: #D32F2F;
   --warning: #FFC107;
-  --success: #4CAF50;
+  --success: #c6c24d;
   --border: #eaeaea;
   --radius: 8px;
 }
@@ -38,6 +38,19 @@ h5 {
   margin: 0;
   font-family: 'Georgia', serif;
   color: var(--text-main);
+}
+
+.footer-title {
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #f0eeb8;
+}
+
+.footer-text {
+  margin-top: 30px;
+  font-size: 13px;
+  color: #f0eeb8;
 }
 
 ul,
@@ -477,7 +490,7 @@ button {
 }
 
 .see-all-card.blue-card {
-  background-color: #E1F5FE;
+  background-color: #BAB62A;
 }
 
 .see-all-content h3 {
@@ -487,7 +500,7 @@ button {
 }
 
 .see-all-card.blue-card h3 {
-  color: #0277BD;
+  color: #f4f3d2;
 }
 
 .brand-section {
